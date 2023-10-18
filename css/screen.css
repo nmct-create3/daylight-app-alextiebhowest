@@ -8,11 +8,21 @@
 
 :root {
     /* colors */
+    --global-light-blue-color: #CCE7FF;
+    --global-dark-blue-color: #0F3557;
+    --global-white-color: #ffffff;
 
+    /*standard values */
+    --global-background-color: var(--global-light-blue-color);
+    --global-text-color: var(--global-dark-blue-color);
+    /* font-family */
+    font-family: 'Work Sans', sans-serif;
     /* opacity */
 
     /* transitions */
 }
+
+
 
 /*------------------------------------*\
 #GENERIC
@@ -47,16 +57,17 @@ html {
 */
 
 ::-moz-selection {
-    background: red;
-    color: white;
+    background: var(--global-selection-background-color);
+    color: var(--global-selection-color);
     text-shadow: none;
 }
 
 ::selection {
-    background: red;
-    color: white;
+    background: var(--global-selection-background-color);
+    color: var(--global-selection-color);
     text-shadow: none;
 }
+
 
 /*------------------------------------*\
 #Elements
@@ -78,7 +89,11 @@ img {
     ---
     Default markup for typographic elements
 */
-
+body{
+    margin: 0;
+    background-color: var(--global-background-color);
+    color: var(--global-text-color);
+}
 h1,
 h2,
 h3 {
@@ -234,45 +249,68 @@ input::placeholder {
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
+.c-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: auto;
+    width: calc(400/16 * 1rem);
+    justify-content: space-between;
+}
+.c-logo{
+    display: flex;
+    width: 100%;
+    margin-top: 32px;
+}
+.c-logo-text{
+    padding-left: 0.5rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.c-logo-svg{
+    width: calc(22/16 * 1rem);
+    fill: var(--global-dark-blue-color);
+}
 
-/*
-    Component: Logo
-    ---
-    Website main logo
-*/
+.c-app__summary{
+    font-size: calc(28/16 * 1rem);
+    line-height: calc(40/16 * 1rem);
 
-.c-logo {}
+}
+.c-horizon{
+    width: 100%;
+    height: calc(198/16 * 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: calc(34/16 * 1rem);
+}
+.c-horizon__line{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--global-dark-blue-color);
+}
 
-/*
-    Component: Sun
-    ---
-    The sun
-*/
+.c-app__location{
+    display: block;
+    left: 0;
+    margin-bottom: 2rem;
+}
 
-.c-sun {}
+.c-horizon__sky-wrapper {
+    position: relative;
+    overflow: hidden;
+}
 
-.c-logo .c-sun {}
+.c-horizon__sky {
+    position: relative;
+    height: 100%;
+}       
 
-/*
-    Component: App
-    ---
-    Main app wrapper
-*/
-
-/*
-    Component: Horizon
-    ---
-    Horizon with sun visualisation
-*/
-
-/*------------------------------------*\
-#UTILITIES
-\*------------------------------------*/
-
-/*
-    Utilities: Mute
-    Mute with opacity
-*/
+.muted{
+    opacity: 0.6;
+}
 
 /*------------------------------------*\
 #STATES
